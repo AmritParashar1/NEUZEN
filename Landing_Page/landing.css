@@ -46,8 +46,31 @@ h1 {
 }
 
 .google-btn {
-    background-color: #4285F4;
+    background-color: #4285F4; /* Google's blue color */
     color: #fff;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px;
+    display: inline-flex; /* Align image and text horizontally */
+    align-items: center; /* Vertically center the image and text */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.google-btn img {
+    height: 30px; /* Size of the Google logo */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.google-btn:hover {
+    background-color: #001f50; /* Darker shade on hover */
+}
+
+.google-btn:active {
+    background-color: #2a65d7; /* Even darker shade when pressed */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow change */
 }
 
 .apple-btn {

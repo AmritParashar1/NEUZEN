@@ -69,12 +69,17 @@ h1 {
 }
 
 .feature-card {
-    background-color: #14274e;
+    background: linear-gradient(135deg, 
+                #c58383 0%,    /* First color takes 70% */
+                #a3a3e8 63%,    /* Second color takes up 15% */
+                #6c63ff 100%);  /* Third color takes the remaining space */
     padding: 20px;
     border-radius: 10px;
     width: 200px;
     text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); /* Drop shadow */
 }
+
 
 .trending {
     text-align: center;

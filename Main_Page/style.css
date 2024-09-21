@@ -48,6 +48,7 @@ body {
     flex: 1;
     padding: 20px;
     background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    /* background-color: #fdfbf0; */
 
 }
 
@@ -85,7 +86,7 @@ body {
 }
 
 .article-card {
-    background-color: #ffffff;
+    background-color: #fdfbf7;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;

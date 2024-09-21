@@ -1,0 +1,154 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.sidebar li i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    /* position: sticky;
+    top: 0; */
+}
+
+.search-bar {
+    width: 70%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Articles Section */
+.articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.article-card {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.category {
+    font-size: 0.9em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Latest News Section */
+.latest-news {
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.latest-news h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.news-item {
+    margin-bottom: 20px;
+}
+
+.news-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.news-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        padding: 10px;
+    }
+    .articles {
+        grid-template-columns: 1fr;
+    }
+    .latest-news {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

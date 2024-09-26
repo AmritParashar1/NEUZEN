@@ -11,7 +11,19 @@ body {
     height: 100vh;
 }
 
-/* Sidebar (Navigation Section) */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+.back-button{
+    text-decoration: none;
+}
+
+
+/* Sidebar */
 .sidebar {
     width: 200px;
     background-color: #ffffff;
@@ -22,57 +34,47 @@ body {
     top: 0;
 }
 
-.sidebar ul
-{
+.logo h1 {
+    color: #333;
+    font-size: 1.9em;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.sidebar ul {
     list-style: none;
     padding: 0;
 }
+
+.sidebar li {
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.sidebar a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar li i {
+    margin-right: 10px;
+}
+
 
 .logo-container {
     margin-bottom: 40px;
     text-align: center;
 }
 
-.logo {
-    font-size: 2.5em;
-}
 
-.nav-links {
-    list-style: none;
-}
-
-.nav-links li {
-    margin: 20px 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.2em;
-    display: block;
-    /* padding: 10px; */
-    fill: black;
-}
-
-.nav-links a.active {
-    font-weight: bold;
-    background-color: #1a73e8;
-    color: white;
-    fill: white;
-}
-
-.nav-links a:hover {
-    /* background-color: #1E40AF; */
-    border-radius: 5px;
-    /* color: white; */
-    /* fill: white; */
-}
 
 /* Main Content */
 .main-content {
     width: 60%;
     padding: 20px;
-    background-color: #E0F2FC;
+    background-color:#fdfbf7;
     display: flex;
     flex-direction: column;
 }
@@ -123,6 +125,7 @@ body {
 .post img {
     width: 100%;
     border-radius: 10px;
+    height: 400px;
 }
 
 /* Trending News (Latest News Section) */

@@ -70,6 +70,19 @@ body {
     text-align: center;
 }
 
+.sidebar li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar li a:hover {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
 
 
 /* Main Content */

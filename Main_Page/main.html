@@ -27,7 +27,7 @@
         <!-- Main Content -->
         <div class="main-content">
             <div class="header">
-                <input class="search-bar" type="text" placeholder="Search Neuzen">
+                <input class="search-bar" id="searchBar" type="text" placeholder="Search Neuzen">
                 <a class="create-button" href="../Draft_Page/draft.html">Create </a> 
             </div>
 
@@ -99,5 +99,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Select the Explore button and the search bar
+        const exploreButton = document.querySelector('.fa-search'); // or target the li element directly
+        const searchBar = document.getElementById('searchBar');
+    
+        // Add a click event listener to the Explore button
+        exploreButton.addEventListener('click', function() {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+    
+            // Focus the search bar after scrolling
+            setTimeout(() => {
+                searchBar.focus();
+            }, 500); // Adjust the delay to give time for the scroll
+        });
+    </script>
+    
 </body>
 </html>

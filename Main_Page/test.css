@@ -1,7 +1,7 @@
-/* General Styling */
+/* General styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f0f2f5;
     color: #333;
 }
@@ -17,12 +17,15 @@ body {
     padding: 20px;
     height: 100vh;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
 }
 
 .logo h1 {
     color: #333;
     font-size: 1.8em;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 0px;
 }
 
 .sidebar ul {
@@ -36,23 +39,49 @@ body {
     color: #333;
 }
 
+.sidebar a
+{
+    text-decoration: none;
+    color: black;
+}
+
 .sidebar li i {
     margin-right: 10px;
 }
+
+.sidebar li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar li a:hover {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
 
 /* Main Content */
 .main-content {
     flex: 1;
     padding: 20px;
-    background-color: #e9ecef;
-    height: 100vh;
-    overflow: hidden;
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    /* background-color: #fdfbf0; */
+
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    /* position: sticky;
+    top: 0; */
+
 }
 
 .search-bar {
@@ -60,6 +89,9 @@ body {
     padding: 10px;
     border-radius: 25px;
     border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background: url('https://image.flaticon.com/icons/png/512/149/149852.png') no-repeat 10px center;
+    background-size: 20px;
 }
 
 .create-button {
@@ -69,27 +101,53 @@ body {
     border-radius: 25px;
     border: none;
     cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
+    text-decoration: none;
 }
 
-/* Scrollable Articles Section */
-.articles-container {
-    height: calc(100vh - 100px); /* Adjust height to fit within the viewport */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-right: 10px;
+.create-button:hover{
+    background-color:#4b9ef7 ;
+}
+
+/* Articles Section */
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
 }
 
 .article-card {
-    background-color: #ffffff;
-    padding: 15px;
-    margin-bottom: 20px;
+    background-color: #fdfbf7;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    transition: box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .article-card:hover {
+    transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+.article-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-card img:hover {
+    transform: scale(1.05);
+}
+
+.article-card h2
+{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
 
 .category {
     font-size: 0.9em;
@@ -102,9 +160,7 @@ body {
     width: 250px;
     padding: 20px;
     background-color: #ffffff;
-    height: 100vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
 }
 
 .latest-news h2 {
@@ -120,6 +176,12 @@ body {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.news-item img:hover {
+    transform: scale(1.05);
 }
 
 .news-item p {
@@ -135,7 +197,7 @@ body {
     .main-content {
         padding: 10px;
     }
-    .articles-container {
+    .articles {
         grid-template-columns: 1fr;
     }
     .latest-news {

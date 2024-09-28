@@ -82,6 +82,11 @@ body {
     border: none;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
+    text-decoration: none;
+}
+
+.create-button:hover{
+    background-color:#4b9ef7 ;
 }
 
 /* Articles Section */

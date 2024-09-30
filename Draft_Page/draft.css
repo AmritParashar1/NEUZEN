@@ -25,6 +25,11 @@ body {
     color: #333;
 }
 
+.logo a
+{
+    text-decoration: none;
+}
+
 .publish-button {
     background-color: #4CAF50;
     color: white;

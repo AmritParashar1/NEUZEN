@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+}
+
+.logo h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.sidebar a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar li i {
+    margin-right: 10px;
+}
+
+.sidebar li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: padding-left 0.3s ease;
+}
+
+.sidebar li a:hover {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+/* Settings Container */
+.settings-content {
+    width: 80%;
+    padding: 20px;
+}
+
+.settings-container {
+    display: flex;
+    gap: 30px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.menu ul li.active {
+    font-weight: bold;
+}
+
+.main {
+    width: 100%;
+}
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.settings-section {
+    margin-top: 20px;
+}
+
+.setting {
+    margin-bottom: 20px;
+}
+
+.setting label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.setting p, .setting a {
+    font-size: 16px;
+    color: #555;
+}

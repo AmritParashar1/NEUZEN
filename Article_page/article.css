@@ -98,6 +98,7 @@ main {
     margin-right: 10px;
 }
 
+
 .engagement {
     display: flex;
     gap: 20px;
@@ -112,7 +113,14 @@ main {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
+
+.article-image img:hover
+{
+    transform: scale(1.05);
+}
+
 
 .article-content p {
     font-size: 18px;

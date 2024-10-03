@@ -151,6 +151,11 @@ body {
     color: #141414;
 }
 
+.article-card a
+{
+    text-decoration: none;
+}
+
 
 .category {
     font-size: 0.9em;

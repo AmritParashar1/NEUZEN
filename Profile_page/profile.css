@@ -165,7 +165,7 @@ body {
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
 }
 

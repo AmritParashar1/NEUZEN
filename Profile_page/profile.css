@@ -128,39 +128,6 @@ body {
     background-color: #ff5252;
 }
 
-/* Navigation menu styles */
-/* .profile-nav {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.profile-nav ul {
-    display: flex;
-    justify-content: start;
-    list-style: none;
-    padding: 10px;
-}
-
-.profile-nav ul li {
-    margin-right: 20px;
-}
-
-.profile-nav ul li a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    color: #3b3b3b;
-    padding: 10px;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-}
-
-.profile-nav ul li a:hover {
-    color: #ff6b6b;
-    border-bottom: 2px solid #ff6b6b;
-} */
-
 /* About section styles */
 .about-section {
     padding: 20px;
@@ -185,7 +152,6 @@ body {
 .posts-section {
     padding: 30px;
     background-color: #fff;
-    /* margin: 20px auto; */
     border-radius: 10px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
     max-width: 1200px;

@@ -52,6 +52,7 @@ body {
     margin: 20px 0;
     font-size: 1.2em;
     color: #333;
+    transition: padding-left 0.3s ease;
 }
 
 .sidebar a
@@ -75,7 +76,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
     padding-left: 10px;
-    transition: padding-left 0.3s ease;
+    
 }
 
 .sidebar li a:hover {
@@ -168,7 +169,6 @@ body {
     height: auto;
 }
 
-/* Trending News (Latest News Section) */
 .trending-news {
     width: 20%;
     padding: 20px;

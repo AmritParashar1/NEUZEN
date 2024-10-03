@@ -29,20 +29,6 @@ header {
     display: flex;
 }
 
-/* .logo-img {
-    /* display: block; */
-    /* width: 150px;   Change size
-    height: 200px;
-    color: red;     Change color */
-    /* vertical-align: top; */
-/* } */
-  
-
-
-/* .logo img {
-    width: 150px;
-    margin-top: 20px;
-} */
 
 h1 {
     margin-top: 10px;
@@ -81,12 +67,12 @@ h1 {
 }
 
 .google-btn:hover {
-    background-color: #001f50; /* Darker shade on hover */
+    background-color: #001f50; 
 }
 
 .google-btn:active {
-    background-color: #2a65d7; /* Even darker shade when pressed */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow change */
+    background-color: #2a65d7;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .apple-btn {
@@ -110,14 +96,14 @@ h1 {
 
 .feature-card {
     background: linear-gradient(135deg, 
-                #c58383 0%,    /* First color takes 70% */
-                #a3a3e8 63%,    /* Second color takes up 15% */
-                #6c63ff 100%);  /* Third color takes the remaining space */
+                #c58383 0%,    
+                #a3a3e8 63%,    
+                #6c63ff 100%); 
     padding: 20px;
     border-radius: 10px;
     width: 200px;
     text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); /* Drop shadow */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); 
     transition: all 0.3s ease;
 }
 

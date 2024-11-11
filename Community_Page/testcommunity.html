@@ -24,62 +24,108 @@
             </ul>
         </div>
 
+<!--  -->
+<!--  -->
+
         <!-- Main Content -->
 
 
         <div class="main-content">
             <div class="community-list">
                 <div class="community-card">
-                    <h3>HipHop</h3>
-                    <p>Share and discover the latest in hip hop music and culture.</p>
-                </div>
-                <div class="community-card">
-                    <h3>Gaming</h3>
-                    <p>Join the discussion on the latest games, consoles, and gaming news.</p>
-                </div>
-            </div>
-            <h2>Community Posts</h2>
 
-            <div class="post">
-                <div class="post-content">
-                    <span class="community-name">hiphopheads</span>
-                    <p>Everybody is talking about the best hip hop intros but what was the worst attempt to start off an album?</p>
-                    <div class="post-views">
-                        <i class="fas fa-eye"></i> 1,234 views
-                    </div>
                 </div>
-                <span class="post-date">Nov 9, 2024, 14:38</span>
-            </div>
-
-            <div class="post">
-                <div class="post-content">
-                    <img src="https://a.vsstatic.com/mobile/app/category/rap-hip-hop.jpg" alt="Post Thumbnail">
-                    <div class="post-text">
-                        <span class="community-name">
-                            <img src="https://cdn.pixabay.com/photo/2024/01/21/20/09/ai-generated-8523907_640.png" alt="Community Icon" class="community-icon">
-                            television
-                        </span>
-                        <p>'Andor' Season 2 Premieres April 22, 2025 on Disney+</p>
-                        <div class="post-views">
-                            <i class="fas fa-eye"></i> 1,234 views
-                        </div>
-                    </div>
-                </div>
-                <span class="post-date">Nov 9, 2024, 20:15</span>
-            </div>
-
-            <div class="post">
-                <div class="post-content">
-                    <img src="https://example.com/tony_todd.jpg" alt="Post Thumbnail">
-                    <div class="post-text">
-                        <span class="community-name">television</span>
-                        <p>Tony Todd, ‘Candyman’ and ‘Final Destination’ Star, Dies at 69</p>
-                        <a href="#">variety.com</a>
-                    </div>
-                </div>
-                <span class="post-date">Nov 9, 2024, 07:56</span>
             </div>
         </div>
     </div>
+<!--  -->
+<!--  -->
+
+
+    <!-- JavaScript -->
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("../JSON/community.json")
+                .then(response => response.json())
+                .then(data => {
+                    const communityList = document.querySelector(".community-list");
+                    const mainContent = document.querySelector(".main-content");
+        
+                    // Clear existing content
+                    communityList.innerHTML = "";
+        
+                    // Create and display community cards
+                    data.communities.forEach(community => {
+                        const communityCard = document.createElement("div");
+                        communityCard.classList.add("community-card");
+                        communityCard.innerHTML = `
+                            <div class="community-header">
+                                <img src="${community.icon}" alt="${community.name} Icon" class="community-icon">
+                                <h3>${community.name}</h3>
+                            </div>
+                            <p>${community.description}</p>
+                        `;
+                        communityList.appendChild(communityCard);
+                    });
+        
+                    // Create and display posts
+                    const postsContainer = document.createElement("div");
+                    postsContainer.innerHTML = "<h2>Community Posts</h2>";
+        
+                    // Flatten all posts from all communities and sort by timestamp
+                    const allPosts = data.communities
+                        .flatMap(community => community.posts)
+                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        
+                    allPosts.forEach(post => {
+                        const postElement = document.createElement("div");
+                        postElement.classList.add("post");
+                        
+                        // Format the timestamp
+                        const postDate = new Date(post.timestamp);
+                        const formattedDate = postDate.toLocaleString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+        
+                        postElement.innerHTML = `
+                            <div class="post-content">
+                                <img src="${post.image}" alt="Post Thumbnail">
+                                <div class="post-text">
+                                    <span class="community-name">
+                                        <img src="${data.communities.find(c => c.name === post.communityName).icon}" 
+                                             alt="${post.communityName} Icon" 
+                                             class="community-icon">
+                                        ${post.communityName}
+                                    </span>
+                                    <p>${post.content}</p>
+                                    <div class="post-views">
+                                        <i class="fas fa-eye"></i> ${post.views.toLocaleString()} views
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="post-date">${formattedDate}</span>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+        
+                    // Add posts container after community list
+                    mainContent.appendChild(postsContainer);
+                })
+                .catch(error => {
+                    console.error("Error fetching community data:", error);
+                    const mainContent = document.querySelector(".main-content");
+                    mainContent.innerHTML += `
+                        <div class="error-message">
+                            <p>Failed to load community data. Please try again later.</p>
+                        </div>
+                    `;
+                });
+        });
+     </script>
+
 </body>
 </html>

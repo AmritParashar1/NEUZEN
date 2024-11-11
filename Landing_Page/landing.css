@@ -28,6 +28,7 @@ header {
     justify-content: center;
     display: flex;
 }
+.logo img {
     width: 300px;
     margin-top: 20px;
 }

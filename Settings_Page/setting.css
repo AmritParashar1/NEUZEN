@@ -23,6 +23,7 @@ body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
+    margin-right: 20px;
 }
 
 .logo h1 {

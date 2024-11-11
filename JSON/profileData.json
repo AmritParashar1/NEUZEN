@@ -1,0 +1,62 @@
+{
+    "profile": {
+      "name": "Amrit Parashar",
+      "role": "Writer",
+      "profilePicture": "https://static.vecteezy.com/system/resources/thumbnails/036/594/092/small_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg",
+      "bio": "Loves landscape photography and traveling.",
+      "followers": 294,
+      "following": 6
+    },
+    "navigation": [
+      {
+        "name": "Home",
+        "icon": "fas fa-home",
+        "link": "../Main_Page/main.html"
+      },
+      {
+        "name": "Explore",
+        "icon": "fas fa-search",
+        "link": "../Main_Page/main.html"
+      },
+      {
+        "name": "Communities",
+        "icon": "fas fa-users",
+        "link": "../Community_Page/community.html"
+      },
+      {
+        "name": "Profile",
+        "icon": "fas fa-user-circle",
+        "link": "../Profile_page/profile.html"
+      },
+      {
+        "name": "Settings",
+        "icon": "fas fa-cog",
+        "link": "../Settings_Page/setting.html"
+      }
+    ],
+    "about": {
+      "description": "Hi I'm Amrit Parashar. I'm a professional photographer with a passion for landscape photography. I'm so lucky my job is to travel around the world and capture its beauty. Some of the most beautiful places I’ve been include Santorini (Greece), Amalfi Coast (Italy), Lofoten Islands (Norway), Iguazú Falls (Argentina), Bagan (Myanmar), and Mù Cang Chải (Vietnam).",
+      "upcomingPost": "Boracay (Philippines)"
+    },
+    "posts": [
+      {
+        "title": "Lofoten Islands (Norway)",
+        "date": "Jan 28, 2021",
+        "duration": "1 min",
+        "image": "https://res.cloudinary.com/gofjords-com/images/c_scale,w_1400,h_787,dpr_2/f_auto,q_auto:good/v1708625250/Destinations/Lofoten/Henningsvaer/Henningsvaer-village-Lofoten-300820-photo-Ina-Cristine-Helljesen/Henningsvaer-village-Lofoten-300820-photo-Ina-Cristine-Helljesen.jpg?_i=AA"
+      },
+      {
+        "title": "Bagan (Myanmar)",
+        "date": "Jan 28, 2021",
+        "duration": "1 min",
+        "image": "https://envoyexcellency.com/wp-content/uploads/2023/12/Temples-of-Bagan-Restoration.jpg"
+      },
+      {
+        "title": "Mù Cang Chải (Vietnam)",
+        "date": "Jan 28, 2021",
+        "duration": "1 min",
+        "image": "https://i.ytimg.com/vi/Nj-9OPn6kjY/maxresdefault.jpg"
+      }
+    ]
+  }
+  

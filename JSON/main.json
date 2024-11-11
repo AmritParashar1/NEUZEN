@@ -1,0 +1,65 @@
+{
+    "articles": [
+      {
+        "title": "NASA Captures Closest Images of Saturn",
+        "category": "Space",
+        "image": "image.png",
+        "description": "This image shows Saturn's atmosphere from closer than ever before, captured by NASA's Cassini spacecraft.",
+        "link": "../Article_page/article.html"
+      },
+      {
+        "title": "Grand Theft Auto VI",
+        "category": "Gaming",
+        "image": "WhatsApp Image 2024-09-19 at 19.37.26_dbec4b18.jpg",
+        "description": "The makers of the Grand Theft Auto series show the first look at their new iteration.",
+        "link": "#"
+      },
+      {
+        "title": "Tyler, the Creator Won't Allow Posthumous Music Releases",
+        "category": "Hip Hop",
+        "image": "WhatsApp Image 2024-09-19 at 19.39.50_ce339e73.jpg",
+        "description": "Tyler specifies in his will that no tracks of his are to be released after he dies.",
+        "link": "#"
+      },
+      {
+        "title": "Apple Event 2024: New iPhone Announced",
+        "category": "Technology",
+        "image": "WhatsApp Image 2024-09-19 at 19.40.33_c5e8dbe4.jpg",
+        "description": "Apple reveals its latest iPhone model with cutting-edge technology and design improvements.",
+        "link": "#"
+      },
+      {
+        "title": "Olympics 2024: Highlights",
+        "category": "Sports",
+        "image": "WhatsApp Image 2024-09-19 at 19.41.30_f6d8aa7b.jpg",
+        "description": "Key moments from the 2024 Summer Olympics in Paris.",
+        "link": "#"
+      },
+      {
+        "title": "Climate Change Report: Global Temperatures Rise",
+        "category": "Environment",
+        "image": "WhatsApp Image 2024-09-19 at 19.42.56_d58d312b.jpg",
+        "description": "The latest report on climate change shows that global temperatures continue to rise at an alarming rate.",
+        "link": "#"
+      }
+    ],
+    "latestNews": [
+      {
+        "title": "India's Paralympics: The nation takes home 25 medals at the Paris Games.",
+        "image": "paralympics.jpeg"
+      },
+      {
+        "title": "Kendrick Lamar performs at the 2024 Super Bowl.",
+        "image": "kendrick lamar.jpeg"
+      },
+      {
+        "title": "AI Breakthrough: New advancements in AI technology make headlines.",
+        "image": "https://st.depositphotos.com/9999814/61465/i/450/depositphotos_614656542-stock-photo-futuristic-robot-artificial-intelligence-huminoid.jpg"
+      },
+      {
+        "title": "Climate Summit 2024: Leaders discuss new global environmental policies.",
+        "image": "https://www.shutterstock.com/shutterstock/photos/1269582256/display_1500/stock-photo--climate-change-withered-earth-1269582256.jpg"
+      }
+    ]
+  }
+  

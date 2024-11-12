@@ -6,237 +6,8 @@
     <title>Neuzen - Communities</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="community.css">
     <style>        
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #333;
-        }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-
-        /* Sidebar Styles */
-        .sidebar {
-            width: 200px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-
-        }
-
-        .logo h1 {
-            color: #007bff;
-            font-size: 1.8em;
-            margin-bottom: 40px;
-            margin-top: 0px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin: 20px 0;
-            font-size: 1.2em;
-            color: #333;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar li i {
-            margin-right: 10px;
-        }
-
-        .sidebar li:hover {
-            background-color: #e0e0e0;
-            cursor: pointer;
-            border-radius: 10px;
-            padding-left: 10px;
-            transition: padding-left 0.3s ease;
-        }
-
-        .sidebar li a:hover {
-            color: #007bff;
-            transition: color 0.3s ease;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            min-width: 0;
-            padding: 20px;
-        }
-
-        /* Carousel Styles */
-        .carousel-container {
-            width: 100%; 
-            display: flex; /* Display the cards in a row */
-            overflow: visible; /* Remove any scrollable overflow */
-            position: relative;
-            gap: 20px; /* Space between cards */
-        }
-        
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 20px;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 20px;
-        }
-
-        .carousel-buttons {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-            padding: 0 20px;
-        }
-
-        .carousel-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            pointer-events: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .carousel-button:hover {
-            background-color: #0056b3;
-        }
-
-        .carousel-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        /* Community Card Styles */
-        .community-card {
-            width: calc(100% / 4);
-            min-width: 200px; 
-            max-width: 300px;
-            box-sizing: border-box;
-        }
-
-        .community-card:hover {
-            transform: translateY(-1px);
-            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .community-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .community-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* Post Styles */
-        .post {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .community-name {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: bold;
-        }
-
-        .post-content .community-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: -3px;
-        }
-
-        .post-content {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-
-        .post-content img {
-            width: 80px;
-            height: 80px;
-            border-radius: 4px;
-            object-fit: cover;
-        }
-
-        .post-text {
-            flex: 1;
-        }
-
-        .post-text p {
-            font-size: 16px;
-            color: #333;
-            margin: 0;
-        }
-
-        .post-views {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: #007bff;
-            margin-top: 5px;
-        }
-
-        .post-views i {
-            margin-right: 5px;
-        }
-
-        .post-date {
-            color: #666;
-            font-size: 14px;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
     </style>
 </head>
 <body>
@@ -273,7 +44,7 @@
             fetch("../JSON/community.json")
                 .then(response => response.json())
                 .then(data => {
-                    // Create community cards for display (no scrolling)
+
                     const carouselTrack = document.querySelector('.carousel-track');
                     data.communities.forEach(community => {
                         const communityCard = document.createElement("div");
@@ -287,8 +58,7 @@
                         `;
                         carouselTrack.appendChild(communityCard);
                     });
-        
-                    // Create and display posts
+
                     const postsContainer = document.getElementById('posts-container');
                     
                     const allPosts = data.communities
@@ -299,7 +69,7 @@
                         const postElement = document.createElement("div");
                         postElement.classList.add("post");
         
-                        // Format the timestamp
+                        // Format timestamp
                         const postDate = new Date(post.timestamp);
                         const formattedDate = postDate.toLocaleString('en-US', {
                             year: 'numeric',
@@ -309,7 +79,7 @@
                             minute: '2-digit'
                         });
         
-                        // Find the community icon for this post
+                        // ommunity icon for post
                         const communityIcon = data.communities.find(c => c.name === post.communityName).icon;
         
                         postElement.innerHTML = `

@@ -1,0 +1,104 @@
+{
+    "communities": [
+      {
+        "name": "HipHop",
+        "description": "Share and discover the latest in hip hop music and culture",
+        "icon": "/api/placeholder/50/50",
+        "posts": [
+          {
+            "id": 1,
+            "username": "beatmaker_pro",
+            "content": "Just dropped my new mixtape! Check it out and let me know what you think 🎵",
+            "image": "/api/placeholder/400/200",
+            "views": 1523,
+            "timestamp": "2024-11-09T18:30:00",
+            "communityName": "HipHop"
+          },
+          {
+            "id": 2,
+            "username": "hip_hop_daily",
+            "content": "Breaking: Kendrick Lamar announces surprise collaboration album",
+            "image": "/api/placeholder/400/200",
+            "views": 4211,
+            "timestamp": "2024-11-09T15:45:00",
+            "communityName": "HipHop"
+          }
+        ]
+      },
+      {
+        "name": "Gaming",
+        "description": "Join the discussion on the latest games, consoles, and gaming news",
+        "icon": "/api/placeholder/50/50",
+        "posts": [
+          {
+            "id": 3,
+            "username": "gamer_x",
+            "content": "First look at the new God of War gameplay trailer!",
+            "image": "/api/placeholder/400/200",
+            "views": 3422,
+            "timestamp": "2024-11-09T19:15:00",
+            "communityName": "Gaming"
+          },
+          {
+            "id": 4,
+            "username": "console_wars",
+            "content": "PS5 Pro specs leaked - Here's what we know so far",
+            "image": "/api/placeholder/400/200",
+            "views": 2891,
+            "timestamp": "2024-11-09T17:20:00",
+            "communityName": "Gaming"
+          }
+        ]
+      },
+      {
+        "name": "Technology",
+        "description": "Stay updated with the latest tech news and gadget reviews",
+        "icon": "/api/placeholder/50/50",
+        "posts": [
+          {
+            "id": 5,
+            "username": "tech_insider",
+            "content": "Apple's new M3 chip benchmarks are breaking records",
+            "image": "/api/placeholder/400/200",
+            "views": 2765,
+            "timestamp": "2024-11-09T16:10:00",
+            "communityName": "Technology"
+          },
+          {
+            "id": 6,
+            "username": "future_tech",
+            "content": "This new AI model can generate 3D models from text descriptions",
+            "image": "/api/placeholder/400/200",
+            "views": 1987,
+            "timestamp": "2024-11-09T14:30:00",
+            "communityName": "Technology"
+          }
+        ]
+      },
+      {
+        "name": "Photography",
+        "description": "Share your best shots and get feedback from fellow photographers",
+        "icon": "data:image/png;base64,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",
+        "posts": [
+          {
+            "id": 7,
+            "username": "lens_master",
+            "content": "Captured this amazing sunset at Mount Fuji",
+            "image": "data:image/jpeg;base64,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",
+            "views": 1432,
+            "timestamp": "2024-11-09T20:00:00",
+            "communityName": "Photography"
+          },
+          {
+            "id": 8,
+            "username": "photo_tips",
+            "content": "5 essential camera settings for night photography",
+            "image": "/api/placeholder/400/200",
+            "views": 2143,
+            "timestamp": "2024-11-09T18:45:00",
+            "communityName": "Photography"
+          }
+        ]
+      }
+    ]
+  }

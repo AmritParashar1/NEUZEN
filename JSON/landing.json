@@ -1,0 +1,78 @@
+{
+    "topBar": {
+      "signUpButton": "../SignUp_Page/SignUP.html"
+    },
+    "header": {
+      "logo": "logo.svg",
+      "heading": "Discover your communities, news and much more!",
+      "subheading": "Your journey begins here. Join now and explore endless possibilities.",
+      "signUpButtons": [
+        {
+          "text": "Sign Up with Google",
+          "class": "google-btn"
+        },
+        {
+          "text": "Sign Up with Apple",
+          "class": "apple-btn"
+        }
+      ],
+      "getStartedButton": {
+        "text": "Get Started Now",
+        "link": "../SignUp_Page/SignUP.html"
+      }
+    },
+    "features": [
+      {
+        "title": "Community Editor Tools",
+        "description": "Provides tools for editors to create, manage, and maintain community standards."
+      },
+      {
+        "title": "Subcommunities",
+        "description": "Enable users to create and join meaningful discussions around specific interests or topics."
+      },
+      {
+        "title": "Amazing Search Discoverability",
+        "description": "Empowers you to search for posts, communities, or news based on relevant keywords, improving content discoverability."
+      },
+      {
+        "title": "Anonymous Posting",
+        "description": "Allows users to post content anonymously, fostering open sharing and participation."
+      }
+    ],
+    "trending": [
+      {
+        "title": "Blue Eye Samurai",
+        "image": "https://m.media-amazon.com/images/M/MV5BY2E4ZGIwZWYtMGRiMS00NGI2LTgwYzAtZGY5NGVhNzY3Yjk0XkEyXkFqcGc@._V1_.jpg"
+      },
+      {
+        "title": "As Jimmy Carter Nears the End...",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/JimmyCarterPortrait2.jpg"
+      },
+      {
+        "title": "The Weeknd Reveals...",
+        "image": "https://e1.hespress.com/wp-content/uploads/2022/01/E_wooELVkAM6Sun-800x600.jpeg"
+      },
+      {
+        "title": "GTA VI Trailer Revealed!",
+        "image": "WhatsApp Image 2024-09-19 at 19.37.26_dbec4b18.jpg"
+      }
+    ],
+    "footer": {
+      "text": "© 2024 Our Platform. All rights reserved.",
+      "links": [
+        {
+          "text": "Privacy Policy",
+          "href": "#"
+        },
+        {
+          "text": "Terms of Service",
+          "href": "#"
+        },
+        {
+          "text": "Contact Us",
+          "href": "#"
+        }
+      ]
+    }
+  }
+  

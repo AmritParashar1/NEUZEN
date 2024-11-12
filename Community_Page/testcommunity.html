@@ -6,9 +6,7 @@
     <title>Neuzen - Communities</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* General Styles */
-        
+    <style>        
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -19,7 +17,7 @@
         
         .container {
             display: flex;
-            flex-wrap: wrap; /* Enable wrapping */
+            flex-wrap: wrap;
         }
         
 
@@ -32,6 +30,7 @@
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
+
         }
 
         .logo h1 {
@@ -77,19 +76,21 @@
         /* Main Content */
         .main-content {
             flex: 1;
-            min-width: 0; /* Allows the main content to shrink when sidebar takes up space */
+            min-width: 0;
             padding: 20px;
         }
 
         /* Carousel Styles */
         .carousel-container {
-            width: 100%; /* Allow the container to use the full width of the screen */
-            overflow: hidden;
-            position: relative; /* Needed for absolute positioning of buttons */
+            width: 100%; 
+            display: flex; /* Display the cards in a row */
+            overflow: visible; /* Remove any scrollable overflow */
+            position: relative;
+            gap: 20px; /* Space between cards */
         }
         
+        
         .carousel-track {
-            /* No need to change anything here if you are using flexbox */
             display: flex;
             transition: transform 0.5s ease;
             gap: 20px;
@@ -139,14 +140,14 @@
 
         /* Community Card Styles */
         .community-card {
-            width: calc(100% / 4 - 20px); /* Show 4 cards per row with space; adjust as needed */
-            min-width: 200px; /* Minimum width to avoid collapsing */
-            max-width: 300px; /* Limit width so cards don’t stretch too wide */
+            width: calc(100% / 4);
+            min-width: 200px; 
+            max-width: 300px;
             box-sizing: border-box;
         }
 
         .community-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-1px);
             box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
         }
 
@@ -254,74 +255,26 @@
             </ul>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
-            <!-- Communities Carousel -->
             <div class="carousel-container">
                 <div class="carousel-track">
-                    <!-- Community cards will be inserted here by JavaScript -->
-                </div>
-                <div class="carousel-buttons">
-                    <button class="carousel-button prev-button">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-button next-button">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
             </div>
 
-            <!-- Posts Container -->
             <div id="posts-container">
                 <h2>Community Posts</h2>
-                <!-- Posts will be inserted here by JavaScript -->
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            let currentPosition = 0;
-            const carouselTrack = document.querySelector('.carousel-track');
-            const prevButton = document.querySelector('.prev-button');
-            const nextButton = document.querySelector('.next-button');
-            const container = document.querySelector('.carousel-container');
-            
-            function updateCarousel() {
-                const containerWidth = container.clientWidth;
-                const scrollWidth = carouselTrack.scrollWidth;
-                const maxScroll = -(scrollWidth - containerWidth);
-                
-                // Update carousel position
-                carouselTrack.style.transform = `translateX(${currentPosition}px)`;
-                
-                // Update button states
-                prevButton.disabled = currentPosition >= 0;
-                nextButton.disabled = currentPosition <= maxScroll;
-            }
-        
-            prevButton.addEventListener('click', () => {
-                const containerWidth = container.clientWidth;
-                currentPosition += containerWidth * 0.8; // Scroll 80% of container width
-                currentPosition = Math.min(currentPosition, 0);
-                updateCarousel();
-            });
-        
-            nextButton.addEventListener('click', () => {
-                const containerWidth = container.clientWidth;
-                const scrollWidth = carouselTrack.scrollWidth;
-                const maxScroll = -(scrollWidth - containerWidth);
-                
-                currentPosition -= containerWidth * 0.8; // Scroll 80% of container width
-                currentPosition = Math.max(currentPosition, maxScroll);
-                updateCarousel();
-            });
-        
             // Fetch and display data
             fetch("../JSON/community.json")
                 .then(response => response.json())
                 .then(data => {
-                    // Create community cards for carousel
+                    // Create community cards for display (no scrolling)
+                    const carouselTrack = document.querySelector('.carousel-track');
                     data.communities.forEach(community => {
                         const communityCard = document.createElement("div");
                         communityCard.classList.add("community-card");
@@ -335,13 +288,9 @@
                         carouselTrack.appendChild(communityCard);
                     });
         
-                    // Initialize carousel
-                    updateCarousel();
-        
                     // Create and display posts
                     const postsContainer = document.getElementById('posts-container');
                     
-                    // Flatten all posts from all communities and sort by timestamp
                     const allPosts = data.communities
                         .flatMap(community => community.posts)
                         .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
@@ -349,7 +298,7 @@
                     allPosts.forEach(post => {
                         const postElement = document.createElement("div");
                         postElement.classList.add("post");
-                        
+        
                         // Format the timestamp
                         const postDate = new Date(post.timestamp);
                         const formattedDate = postDate.toLocaleString('en-US', {
@@ -393,13 +342,7 @@
                         </div>
                     `;
                 });
-        
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                // Recalculate dimensions and update carousel
-                updateCarousel();
-            });
-        });
+        });           
     </script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <a href="../Main_Page/main.html"><h1>neuzen</h1></a>
+            </div>
+            <ul>
+                <li><a href="../Main_Page/main.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><i class="fas fa-search"></i> Explore</li>
+                <li><a href="../Community_Page/community.html"><i class="fas fa-users"></i> Communities</a></li>
+                <li><a href="../Profile_page/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li><a href="../Settings_Page/setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <input class="search-bar" id="searchBar" type="text" placeholder="Search Neuzen">
+                <a class="create-button" href="../Draft_Page/draft.html">Create</a>
+            </div>
+
+            <div class="articles"></div> <!-- Articles will be populated here -->
+        </div>
+
+        <div class="latest-news">
+            <h2>Latest Articles</h2>
+            <div class="news-list"></div> <!-- Latest news items will be populated here -->
+        </div>
+    </div>
+
+    <script>
+        fetch("../JSON/main.json")
+        .then(response => response.json())
+        .then(data => {
+            displayArticles(data.articles);
+            displayLatestNews(data.latestNews);
+
+        })
+        .catch(error => console.error("Error loading Json data"))
+
+        function displayArticles(articles) {
+            const articlesContainer = document.querySelector('.articles');
+            articlesContainer.innerHTML = '';
+
+            artilces.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.classList.add('article-card');
+                articleCard.innerHTML = `
+                    <a herf = "${article.link}">
+                        <h2> ${article.title}</h2>
+                        <p class="category" ${article.category}</p> 
+                        <img src="${article.image}" alt = "${article.title}">
+                        <p>${article.description}</p>
+                    </a>`;
+                    articlesContainer.appendChild(articleCard);
+                
+            });
+        }
+    </script>
+</body>
+</html>

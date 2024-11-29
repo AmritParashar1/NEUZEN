@@ -119,13 +119,13 @@ h1 {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.get-started-btn:hover {
+.get-started-btn-container:hover {
     background-color: #b00710; /* Darker red for hover effect */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
     cursor: pointer;
 }
 
-.get-started-btn:active {
+.get-started-btn-container:active {
     background-color: #87050b; /* Even darker red when pressed */
     transform: scale(1); /* Return to normal scale on active press */
 }

@@ -6,27 +6,16 @@
     <title>News Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/Main_Page/main.css">
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="logo">
-                <a href="../Main_Page/main.html"> <h1>neuzen</h1></a>
-            </div>
-            <ul>
-                <li><a href="../Main_Page/main.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><i class="fas fa-search"></i> Explore</li>
-                <li><a href="../Community_Page/testcommunity.html"><i class="fas fa-users"></i> Communities</a></li>
-                <li><a href="../Profile_page/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
-                <li><a href="../Settings_Page/setting.html"><i class="fas fa-cog"></i> Settings</a></li>
-            </ul>
-        </div>
+        <%- include('sidebar') %> <!-- Include the sidebar partial here -->
 
         <div class="main-content">
             <div class="header">
                 <input class="search-bar" id="searchBar" type="text" placeholder="Search Neuzen">
-                <a class="create-button" href="../Draft_Page/draft.html">Create </a> 
+                <a class="create-button" href="../Draft_Page/draft.html">Create</a>
             </div>
 
             <!-- Static Articles Section (Pre-written) -->
@@ -34,42 +23,42 @@
                 <a href="../Article_page/article1.html" class="article-card">
                     <h2>NASA Captures Closest Images of Saturn</h2>
                     <p class="category">Space</p>
-                    <img src="image.png" alt="Saturn Image">
+                    <img src="Main_Page/image.png" alt="Saturn Image">
                     <p>This image shows Saturn's atmosphere from closer than ever before, captured by NASA's Cassini spacecraft.</p>
                 </a>
 
                 <div class="article-card">
                     <h2>Grand Theft Auto VI</h2>
                     <p class="category">Gaming</p>
-                    <img src="WhatsApp Image 2024-09-19 at 19.37.26_dbec4b18.jpg" alt="GTA VI Image">
+                    <img src="Main_Page/WhatsApp Image 2024-09-19 at 19.37.26_dbec4b18.jpg" alt="GTA VI Image">
                     <p>The makers of the Grand Theft Auto series show the first look at their new iteration.</p>
                 </div>
 
                 <div class="article-card">
                     <h2>Tyler, the Creator Won't Allow Posthumous Music Releases</h2>
                     <p class="category">Hip Hop</p>
-                    <img src="WhatsApp Image 2024-09-19 at 19.39.50_ce339e73.jpg" alt="Tyler, the Creator Image">
+                    <img src="Main_Page/WhatsApp Image 2024-09-19 at 19.39.50_ce339e73.jpg" alt="Tyler, the Creator Image">
                     <p>Tyler specifies in his will that no tracks of his are to be released after he dies.</p>
                 </div>
 
                 <div class="article-card">
                     <h2>Apple Event 2024: New iPhone Announced</h2>
                     <p class="category">Technology</p>
-                    <img src="WhatsApp Image 2024-09-19 at 19.40.33_c5e8dbe4.jpg" alt="New iPhone">
+                    <img src="Main_Page/WhatsApp Image 2024-09-19 at 19.40.33_c5e8dbe4.jpg" alt="New iPhone">
                     <p>Apple reveals its latest iPhone model with cutting-edge technology and design improvements.</p>
                 </div>
 
                 <div class="article-card">
                     <h2>Olympics 2024: Highlights</h2>
                     <p class="category">Sports</p>
-                    <img src="WhatsApp Image 2024-09-19 at 19.41.30_f6d8aa7b.jpg" alt="Olympics Image">
+                    <img src="Main_Page/WhatsApp Image 2024-09-19 at 19.41.30_f6d8aa7b.jpg" alt="Olympics Image">
                     <p>Key moments from the 2024 Summer Olympics in Paris.</p>
                 </div>
 
                 <div class="article-card">
                     <h2>Climate Change Report: Global Temperatures Rise</h2>
                     <p class="category">Environment</p>
-                    <img src="WhatsApp Image 2024-09-19 at 19.42.56_d58d312b.jpg" alt="Climate Change">
+                    <img src="Main_Page/WhatsApp Image 2024-09-19 at 19.42.56_d58d312b.jpg" alt="Climate Change">
                     <p>The latest report on climate change shows that global temperatures continue to rise at an alarming rate.</p>
                 </div>
             </div>

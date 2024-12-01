@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuzen - Communities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Community_Page/community.css">
+    <style>        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <%- include('sidebar') %>
+
+        <div class="main-content">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                </div>
+            </div>
+
+            <div id="posts-container">
+                <h2>Community Posts</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class Post {
+            constructor(content, image, views, timestamp, communityName) {
+                this.content = content;
+                this.image = image;
+                this.views = views;
+                this.timestamp = new Date(timestamp);
+                this.communityName = communityName;
+            }
+    
+            formatTimestamp() {
+                return this.timestamp.toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+        }
+    
+        class Community {
+            constructor(name, description, icon, posts = []) {
+                this.name = name;
+                this.description = description;
+                this.icon = icon;
+                this.posts = posts.map(post => new Post(post.content, post.image, post.views, post.timestamp, name));
+            }
+    
+            renderCard() {
+                return `
+                    <div class="community-card">
+                        <div class="community-header">
+                            <img src="${this.icon}" alt="${this.name} Icon" class="community-icon">
+                            <h3>${this.name}</h3>
+                        </div>
+                        <p>${this.description}</p>
+                    </div>
+                `;
+            }
+        }
+    
+        class CommunityManager {
+            constructor(dataUrl) {
+                this.dataUrl = dataUrl;
+                this.communities = [];
+            }
+    
+            fetchData() {
+                fetch(this.dataUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.communities = data.communities.map(
+                            community => new Community(community.name, community.description, community.icon, community.posts)
+                        );
+                        this.renderCommunities();
+                        this.renderPosts();
+                    })
+                    .catch(error => {
+                        console.error("Error fetching community data:", error);
+                        document.querySelector(".main-content").innerHTML += `
+                            <div class="error-message">
+                                <p>Failed to load community data. Please try again later.</p>
+                            </div>
+                        `;
+                    });
+            }
+    
+            renderCommunities() {
+                const carouselTrack = document.querySelector('.carousel-track');
+                this.communities.forEach(community => {
+                    const communityCard = document.createElement("div");
+                    communityCard.innerHTML = community.renderCard();
+                    carouselTrack.appendChild(communityCard);
+                });
+            }
+    
+            renderPosts() {
+                const postsContainer = document.getElementById('posts-container');
+                const allPosts = this.communities
+                    .flatMap(community => community.posts)
+                    .sort((a, b) => b.timestamp - a.timestamp);
+    
+                allPosts.forEach(post => {
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("post");
+                    const communityIcon = this.communities.find(c => c.name === post.communityName).icon;
+    
+                    postElement.innerHTML = `
+                        <div class="post-content">
+                            <img src="${post.image}" alt="Post Thumbnail">
+                            <div class="post-text"> 
+                                <span class="community-name">
+                                    <img src="${communityIcon}" 
+                                         alt="${post.communityName} Icon" 
+                                         class="community-icon">
+                                    ${post.communityName}
+                                </span>
+                                <p>${post.content}</p>
+                                <div class="post-views">
+                                    <i class="fas fa-eye"></i> ${post.views.toLocaleString()} views
+                                </div>
+                            </div>
+                        </div>
+                        <span class="post-date">${post.formatTimestamp()}</span>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const communityManager = new CommunityManager("community.json");
+            communityManager.fetchData();
+        });
+    </script>
+</body>
+</html>

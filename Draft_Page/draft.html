@@ -9,14 +9,50 @@
 <body>
     <div class="draft-container">
         <header class="draft-header">
-            <div  class="logo"><a href="../Main_Page/main.html">neuzen</a></div>
-            <button class="publish-button">Publish</button>
+            <div class="logo"><a href="../Main_Page/main.html">neuzen</a></div>
+            <button class="publish-button" id="publishButton">Publish</button>
         </header>
 
         <div class="draft-content">
-            <input type="text" class="title-input" placeholder="Title">
-            <textarea class="body-input" placeholder="Tell your story..."></textarea>
+            <input type="text" id="title" class="title-input" placeholder="Title">
+            <textarea id="content" class="body-input" placeholder="Tell your story..."></textarea>
         </div>
     </div>
+
+    <script>
+        // Event listener for the "Publish" button
+        document.getElementById('publishButton').addEventListener('click', async function () {
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+
+            // Validate input
+            if (!title || !content) {
+                alert('Title and content are required!');
+                return;
+            }
+
+            try {
+                // Send POST request to publish the article
+                const response = await fetch('http://localhost:3000/publish', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ title, content }),
+                });
+
+                if (response.ok) {
+                    alert('Article published successfully!');
+                    window.location.href = '../Main_Page/main.html'; // Redirect to the homepage
+                } else {
+                    const errorText = await response.text();
+                    alert(`Error: ${errorText}`);
+                }
+            } catch (err) {
+                console.error('Error publishing article:', err);
+                alert('An error occurred while publishing the article.');
+            }
+        });
+    </script>
 </body>
 </html>

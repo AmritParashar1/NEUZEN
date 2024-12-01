@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrit Parashar Profile</title>
+    <link rel="stylesheet" href="Profile_page/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../Main_Page/main.html"><h1>neuzen</h1></a>
+        </div>
+        <ul>
+            <!-- Links will be added by JavaScript -->
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="profile-header">
+            <!-- Profile info will be filled by JavaScript -->
+            <img class="profile-pic" src="" alt="Profile Picture">
+            <div class="profile-info">
+                <h1></h1>
+                <p></p>
+            </div>
+            <button class="edit-profile">Edit Profile</button>
+        </header>
+
+        <section class="about-section">
+            <h2>About</h2>
+            <p></p>
+            <p></p>
+        </section>
+
+        <section class="posts-section">
+            <h2>Posts</h2>
+            <div class="posts-grid">
+                <!-- Posts will be added by JavaScript -->
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    // JavaScript code to fetch data from JSON and insert into the HTML
+    fetch('../JSON/profileData.json')
+      .then(response => response.json())
+      .then(data => {
+        // Populate Profile Header
+        document.querySelector('.profile-pic').src = data.profile.profilePicture;
+        document.querySelector('.profile-info h1').textContent = `${data.profile.name} (${data.profile.role})`;
+        document.querySelector('.profile-info p').textContent = data.profile.bio;
+        document.querySelector('.profile-info').innerHTML += `<p><strong>${data.profile.followers} Followers</strong> • ${data.profile.following} Following</p>`;
+
+        // Populate Sidebar Navigation Links
+        const navContainer = document.querySelector('.sidebar ul');
+        navContainer.innerHTML = ''; // Clear existing items
+        data.navigation.forEach(link => {
+          const navItem = document.createElement('li');
+          navItem.innerHTML = `<a href="${link.link}"><i class="${link.icon}"></i> ${link.name}</a>`;
+          navContainer.appendChild(navItem);
+        });
+
+        // Populate About Section
+        const aboutSection = document.querySelector('.about-section');
+        aboutSection.innerHTML = `
+          <h2>About</h2>
+          <p>${data.about.description}</p>
+          <p>Check out some of my most recent blog posts below and stay tuned for my latest post on my visit to <em>${data.about.upcomingPost}</em>, coming soon!</p>
+        `;
+
+        // Populate Posts Section
+        const postsContainer = document.querySelector('.posts-grid');
+        postsContainer.innerHTML = ''; // Clear existing posts
+        data.posts.forEach(post => {
+          const postElement = document.createElement('article');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
+            <img src="${post.image}" alt="${post.title}">
+            <h3>${post.title}</h3>
+            <p>${post.date} • ${post.duration}</p>
+          `;
+          postsContainer.appendChild(postElement);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching profile data:', error);
+      });
+
+</script>
+
+</body>
+</html>

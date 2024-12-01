@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URL and database name
-const uri = 'mongodb://localhost:27017'; // MongoDB server URL
+const uri = 'mongodb+srv://siddharthjain23cse:1234@test.8iym3.mongodb.net/';
 const databaseName = 'neuzen'; // Your database name
 
 async function connectDB() {

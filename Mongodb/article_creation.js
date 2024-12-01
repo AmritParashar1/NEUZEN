@@ -1,4 +1,4 @@
-const connectDB = require('./neuzen');
+const connectDB = require('../neuzen');
 
 async function createArticle() {
     try {

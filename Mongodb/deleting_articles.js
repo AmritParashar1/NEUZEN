@@ -1,4 +1,4 @@
-const connectDB = require('./neuzen'); // Your MongoDB connection file
+const connectDB = require('../neuzen'); // Your MongoDB connection file
 
 async function deleteArticleByTitle(title) {
     try {

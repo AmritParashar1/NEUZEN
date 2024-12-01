@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/path/to/your/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../Main_Page/main.html"> <h1>neuzen</h1></a>
+        </div>
+        <ul>
+            <li><a href="../Main_Page/main.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><i class="fas fa-search"></i> Explore</li>
+            <li><a href="../Community_Page/community.html"><i class="fas fa-users"></i> Communities</a></li>
+            <li><a href="../Profile_Page/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="../Settings_Page/setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <%- body %> <!-- Dynamic content -->
+    </div>
+</body>
+</html>

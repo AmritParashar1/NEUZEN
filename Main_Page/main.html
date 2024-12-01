@@ -17,9 +17,9 @@
             <ul>
                 <li><a href="../Main_Page/main.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><i class="fas fa-search"></i> Explore</li>
-                <li><a href="../Community_Page/community.html"><i class="fas fa-users"></i> Communities</a></li>
-                <li><a href="../Profile_page/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
-                <li><a href="../Settings_Page/setting.html"></a><i class="fas fa-cog"></i> Settings</li>
+                <li><a href="../public/community.html"><i class="fas fa-users"></i> Communities</a></li>
+                <li><a href="../public/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li><a href="../Settings_Page/setting.html"><i class="fas fa-cog"></i> Settings</a></li>
             </ul>
         </div>
 
@@ -29,13 +29,14 @@
                 <a class="create-button" href="../Draft_Page/draft.html">Create </a> 
             </div>
 
+            <!-- Static Articles Section (Pre-written) -->
             <div class="articles">
                 <a href="../Article_page/article1.html" class="article-card">
                     <h2>NASA Captures Closest Images of Saturn</h2>
                     <p class="category">Space</p>
                     <img src="image.png" alt="Saturn Image">
                     <p>This image shows Saturn's atmosphere from closer than ever before, captured by NASA's Cassini spacecraft.</p>
-            </a>
+                </a>
 
                 <div class="article-card">
                     <h2>Grand Theft Auto VI</h2>
@@ -72,6 +73,11 @@
                     <p>The latest report on climate change shows that global temperatures continue to rise at an alarming rate.</p>
                 </div>
             </div>
+
+            <!-- Dynamic Articles Section (New Articles from DB) -->
+            <div id="articles-container" class="articles">
+                <!-- Newly published articles will be dynamically loaded here -->
+            </div>
         </div>
 
         <div class="latest-news">
@@ -97,22 +103,39 @@
     </div>
 
     <script>
-        const exploreButton = document.querySelector('.fa-search'); // or target the li element directly
-        const searchBar = document.getElementById('searchBar');
-    
-        // Add a click event listener to the Explore button
-        exploreButton.addEventListener('click', function() {
-            // Scroll to the top of the page
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-    
-            setTimeout(() => {
-                searchBar.focus();
-            }, 500); // Adjust the delay to give time for the scroll
-        });
+        // Function to fetch new articles from the backend
+        async function fetchArticles() {
+            try {
+                const response = await fetch('http://localhost:3000/articles');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch articles');
+                }
+
+                const articles = await response.json();
+                const articlesContainer = document.getElementById('articles-container');
+
+                // Clear any existing articles (if needed)
+                // articlesContainer.innerHTML = '';
+
+                // Iterate through articles and add them to the container
+                articles.forEach(article => {
+                    const articleCard = document.createElement('div');
+                    articleCard.classList.add('article-card');
+
+                    articleCard.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.content}</p>
+                        <small>Published on: ${new Date(article.date).toLocaleString()}</small>
+                    `;
+                    articlesContainer.appendChild(articleCard);
+                });
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+            }
+        }
+
+        // Call fetchArticles on page load
+        window.onload = fetchArticles;
     </script>
-    
 </body>
 </html>

@@ -12,91 +12,138 @@
     <div class="container">
         <div class="sidebar">
             <div class="logo">
-                <a href="../Main_Page/main.html"><h1>neuzen</h1></a>
+                <a href="../Main_Page/main.html"> <h1>neuzen</h1></a>
             </div>
             <ul>
                 <li><a href="../Main_Page/main.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><i class="fas fa-search"></i> Explore</li>
                 <li><a href="../Community_Page/community.html"><i class="fas fa-users"></i> Communities</a></li>
                 <li><a href="../Profile_page/profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
-                <li><a href="../Settings_Page/setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="../Settings_Page/setting.html"></a><i class="fas fa-cog"></i> Settings</li>
             </ul>
         </div>
 
         <div class="main-content">
             <div class="header">
                 <input class="search-bar" id="searchBar" type="text" placeholder="Search Neuzen">
-                <a class="create-button" href="../Draft_Page/draft.html">Create</a>
+                <a class="create-button" href="../Draft_Page/draft.html">Create </a> 
             </div>
 
-            <div class="articles"></div> <!-- Articles will be populated here -->
+            <div class="articles">
+                <a href="../Article_page/article1.html" class="article-card">
+                    <h2>NASA Captures Closest Images of Saturn</h2>
+                    <p class="category">Space</p>
+                    <img src="image.png" alt="Saturn Image">
+                    <p>This image shows Saturn's atmosphere from closer than ever before, captured by NASA's Cassini spacecraft.</p>
+            </a>
+
+                <div class="article-card">
+                    <h2>Grand Theft Auto VI</h2>
+                    <p class="category">Gaming</p>
+                    <img src="WhatsApp Image 2024-09-19 at 19.37.26_dbec4b18.jpg" alt="GTA VI Image">
+                    <p>The makers of the Grand Theft Auto series show the first look at their new iteration.</p>
+                </div>
+
+                <div class="article-card">
+                    <h2>Tyler, the Creator Won't Allow Posthumous Music Releases</h2>
+                    <p class="category">Hip Hop</p>
+                    <img src="WhatsApp Image 2024-09-19 at 19.39.50_ce339e73.jpg" alt="Tyler, the Creator Image">
+                    <p>Tyler specifies in his will that no tracks of his are to be released after he dies.</p>
+                </div>
+
+                <div class="article-card">
+                    <h2>Apple Event 2024: New iPhone Announced</h2>
+                    <p class="category">Technology</p>
+                    <img src="WhatsApp Image 2024-09-19 at 19.40.33_c5e8dbe4.jpg" alt="New iPhone">
+                    <p>Apple reveals its latest iPhone model with cutting-edge technology and design improvements.</p>
+                </div>
+
+                <div class="article-card">
+                    <h2>Olympics 2024: Highlights</h2>
+                    <p class="category">Sports</p>
+                    <img src="WhatsApp Image 2024-09-19 at 19.41.30_f6d8aa7b.jpg" alt="Olympics Image">
+                    <p>Key moments from the 2024 Summer Olympics in Paris.</p>
+                </div>
+
+                <div class="article-card">
+                    <h2>Climate Change Report: Global Temperatures Rise</h2>
+                    <p class="category">Environment</p>
+                    <img src="WhatsApp Image 2024-09-19 at 19.42.56_d58d312b.jpg" alt="Climate Change">
+                    <p>The latest report on climate change shows that global temperatures continue to rise at an alarming rate.</p>
+                </div>
+            </div>
         </div>
 
         <div class="latest-news">
             <h2>Latest Articles</h2>
-            <div class="news-list"></div> <!-- Latest news items will be populated here -->
+            <div class="news-item">
+                <img src="paralympics.jpeg" alt="India's Paralympics">
+                <p>India's Paralympics: The nation takes home 25 medals at the Paris Games.</p>
+            </div>
+            <div class="news-item">
+                <img src="kendrick lamar.jpeg" alt="Kendrick Lamar">
+                <p>Kendrick Lamar performs at the 2024 Super Bowl.</p>
+            </div>
+
+            <div class="news-item">
+                <img src="https://st.depositphotos.com/9999814/61465/i/450/depositphotos_614656542-stock-photo-futuristic-robot-artificial-intelligence-huminoid.jpg" alt="AI Breakthrough">
+                <p>AI Breakthrough: New advancements in AI technology make headlines.</p>
+            </div>
+            <div class="news-item">
+                <img src="https://www.shutterstock.com/shutterstock/photos/1269582256/display_1500/stock-photo--climate-change-withered-earth-1269582256.jpg" alt="Climate Summit">
+                <p>Climate Summit 2024: Leaders discuss new global environmental policies.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Fetch and load data from the JSON file
-        fetch('../JSON/main.json')
-            .then(response => response.json())
-            .then(data => {
-                displayArticles(data.articles);
-                displayLatestNews(data.latestNews);
-            })
-            .catch(error => console.error('Error loading JSON data:', error));
+        // const exploreButton = document.querySelector('.fa-search'); // or target the li element directly
+        // const searchBar = document.getElementById('searchBar');
+    
+        // // Add a click event listener to the Explore button
+        // exploreButton.addEventListener('click', function() {
+        //     // Scroll to the top of the page
+        //     window.scrollTo({
+        //         top: 0,
+        //         behavior: 'smooth'
+        //     });
+    
+        //     setTimeout(() => {
+        //         searchBar.focus();
+        //     }, 500); // Adjust the delay to give time for the scroll
+        // });
 
-        // Function to display articles
-        function displayArticles(articles) {
-            const articlesContainer = document.querySelector('.articles');
-            articlesContainer.innerHTML = ''; // Clear any existing content
+                // Fetch articles from the backend
+                async function fetchArticles() {
+            try {
+                const response = await fetch('http://localhost:3000/articles');
+                const articles = await response.json();
+                const articlesContainer = document.getElementById('articles-container');
 
-            articles.forEach(article => {
-                const articleCard = document.createElement('div');
-                articleCard.classList.add('article-card');
-                articleCard.innerHTML = `
-                    <a href="${article.link}">
+                // Clear the container before adding new articles
+                articlesContainer.innerHTML = '';
+
+                // Iterate through articles and add them to the container
+                articles.forEach(article => {
+                    const articleCard = document.createElement('div');
+                    articleCard.classList.add('article-card');
+
+                    articleCard.innerHTML = `
                         <h2>${article.title}</h2>
-                        <p class="category">${article.category}</p>
-                        <img src="${article.image}" alt="${article.title}">
-                        <p>${article.description}</p>
-                    </a>
-                `;
-                articlesContainer.appendChild(articleCard);
-            });
+                        <p class="category">${article.category || 'Uncategorized'}</p>
+                        <img src="${article.image || 'default-image.jpg'}" alt="${article.title}">
+                        <p>${article.content}</p>
+                    `;
+                    articlesContainer.appendChild(articleCard);
+                });
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+            }
         }
 
-        // Function to display latest news
-        function displayLatestNews(newsItems) {
-            const newsContainer = document.querySelector('.news-list');
-            newsContainer.innerHTML = ''; // Clear any existing content
-
-            newsItems.forEach(news => {
-                const newsItem = document.createElement('div');
-                newsItem.classList.add('news-item');
-                newsItem.innerHTML = `
-                    <img src="${news.image}" alt="${news.title}">
-                    <p>${news.title}</p>
-                `;
-                newsContainer.appendChild(newsItem);
-            });
-        }
-
-        // Explore button click to focus on search bar
-        const exploreButton = document.querySelector('.fa-search');
-        const searchBar = document.getElementById('searchBar');
-
-        exploreButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            setTimeout(() => {
-                searchBar.focus();
-            }, 500);
-        });
+        // Call fetchArticles on page load
+        window.onload = fetchArticles;
     </script>
+    
 </body>
 </html>
